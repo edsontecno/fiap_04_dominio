@@ -14,15 +14,21 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4  # Atualizado para a versão mais recente
+      uses: actions/setup-node@v4
       with:
         node-version: 18  
-        
+
     - name: Install Dependencies
       run: npm install
   
     - name: Run Tests
       run: npm test    
+
+    - name: SonarCloud Analysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        npx sonarqube-scanner  
 
   # build:
   #   runs-on: ubuntu-latest
