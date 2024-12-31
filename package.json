@@ -79,12 +79,15 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
+    "coveragePathIgnorePatterns": [
+      "/src/system/db/migrations/"
+    ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/src/system/db/migrations/"
+      "<rootDir>/src/system/db/.*"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/src/system/db/migrations/"
+      "<rootDir>/src/system/db/.*"
     ]
   }
 }

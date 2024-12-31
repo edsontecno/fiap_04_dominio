@@ -1,8 +1,8 @@
-import { ProductEntity } from 'src/adapters/product/gateway/Product.entity';
+import { ProductEntity } from '../../../adapters/product/gateway/Product.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IProductData } from 'src/application/product/interfaces/IProductData';
+import { IProductData } from '../../../application/product/interfaces/IProductData';
 import { QueryFailedError, Repository } from 'typeorm';
-import { Product } from 'src/application/product/entities/Product';
+import { Product } from '../../../application/product/entities/Product';
 import { CreateProductDto } from '../dto/create-product.dto';
 
 export class ProductGateway implements IProductData {
@@ -12,9 +12,9 @@ export class ProductGateway implements IProductData {
   ) {}
 
   async save(product: Product): Promise<Product> {
-    const entity = new ProductEntity();
+    let entity = new ProductEntity();
     Object.assign(entity, product);
-    await this.repository.save(entity);
+    entity = await this.repository.save(entity);
     return this.convertDataToEntity(entity);
   }
   async get(id: number): Promise<Product> {

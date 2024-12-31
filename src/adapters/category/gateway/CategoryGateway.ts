@@ -14,8 +14,8 @@ export class CategoryGateway implements ICategoryData {
   ) {}
 
   async save(category: Category): Promise<Category> {
-    const entity = this.convertEntityTodata(category);
-    await this.repository.save(entity);
+    let entity = this.convertEntityTodata(category);
+    entity = await this.repository.save(entity);
     return this.convertDataToEntity(entity);
   }
 
