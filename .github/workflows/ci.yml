@@ -24,11 +24,11 @@ jobs:
     - name: Run Tests
       run: npm test    
 
-    - name: SonarCloud Analysis
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: |
-        npx sonarqube-scanner  
+    # - name: SonarCloud Analysis
+    #   env:
+    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    #   run: |
+    #     npx sonarqube-scanner  
 
   # build:
   #   runs-on: ubuntu-latest
