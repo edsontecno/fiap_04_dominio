@@ -29,6 +29,10 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         npx sonarqube-scanner  
+        
+    - name: Check Coverage
+      run: |
+        grep -q 'All files.*80%' coverage-summary.txt || exit 1    
 
   # build:
   #   runs-on: ubuntu-latest
