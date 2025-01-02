@@ -65,6 +65,11 @@
   },
   "jest": {
     "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "statements": 90
+      }
+    },
     "moduleFileExtensions": [
       "js",
       "json",
