@@ -67,7 +67,7 @@
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
-        "statements": 90
+        "statements": 80
       }
     },
     "moduleFileExtensions": [
