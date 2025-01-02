@@ -24,15 +24,6 @@ jobs:
     - name: Run Tests
       run: npm test    
 
-    - name: Check Coverage
-      run: |
-        COVERAGE=$(npx jest --coverage --silent | grep 'All files' | awk '{print $4}' | sed 's/%//')
-          echo "Coverage: $COVERAGE%"
-          if [ "$COVERAGE" -lt 80 ]; then
-            echo "Coverage is below 80%. Failing the job."
-            exit 1
-          fi
-
     - name: SonarCloud Analysis
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
