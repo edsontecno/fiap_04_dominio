@@ -26,12 +26,12 @@ jobs:
 
     - name: Check Coverage
       run: |
-        COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+        COVERAGE=$(cat coverage/coverage-final.json | jq '.total.lines.pct')
         if [ "$COVERAGE" -lt 80 ]; then
           echo "Coverage ($COVERAGE%) is below the threshold (80%)"
           exit 1
         fi  
-         
+
     - name: SonarCloud Analysis
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
