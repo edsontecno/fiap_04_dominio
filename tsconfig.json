@@ -18,5 +18,5 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["features/**/*.ts"]
+  "include": ["test/resources/features/**/*.ts"]
 }
