@@ -34,8 +34,8 @@ import { CreateProductDto } from '../../adapters/product/dto/create-product.dto'
   type: ErrorResponseBody,
 })
 @ApiInternalServerErrorResponse({ description: 'Erro do servidor' })
-@UseGuards(AuthGuard)
-@ApiBearerAuth('user')
+// @UseGuards(AuthGuard)
+// @ApiBearerAuth('user')
 export class ProductController {
   constructor(private readonly adapter: ProductAdapterController) {}
 
