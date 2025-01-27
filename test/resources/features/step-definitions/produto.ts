@@ -1,25 +1,36 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { strict as assert } from "assert";
-import { ProductAdapterController } from "../../../../src/adapters/product/controller/ProductAdapterController";
-let mensagem: string;
-let numero: string;
+import { CreateProductDto } from "src/adapters/product/dto/create-product.dto";
 
-Given("o usuário acessa o sistema",  () => {
-  mensagem = "";
-});
-When("o sistema retorna a mensagem de boas-vindas", () => {
-  mensagem = "Bem-vindo!";
-});
-Then('a mensagem exibida é {string}', (expectedMessage: string) => {
-  assert.equal(mensagem, expectedMessage);
+class MockProductController {
+  async create(dto: CreateProductDto): Promise<number> {
+    return 1;
+  }
+}
+
+let controller: MockProductController;
+let response: any;
+
+Given("usuario solicita o pedido", async () => {
+  controller = new MockProductController();
+
+  const productDto: CreateProductDto = {
+    name: "Doce de leite",
+    description: "Doce de leite da fazenda",
+    price: 5.99,
+    image: "",
+    category: 1,
+  };
+
+  response = await controller.create(productDto);
 });
 
+When("sistema cria o pedido", () => {
+  if (!response) {
+    throw new Error("O pedido não foi criado corretamente");
+  }
+});
 
-Given("cliente solicita o pedido", () => {
-  numero = "1";
-});
-When("o sistema gera o pedido", () => {
-});
-Then('e retorna o numero do pedido {string}', (expectedNumber: string) => {
-  assert.equal(numero, expectedNumber); 
+Then("retorna o numero do pedido {int}", (expectedNumber: number) => {
+  assert.equal(response, expectedNumber);
 });
