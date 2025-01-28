@@ -87,4 +87,4 @@ jobs:
 
       - name: Update Kubernetes Deployment
         run: |
-          kubectl set image deployment/dominio-app dominio-app=${{ secrets.DOCKER_USERNAME }}/clean-architecture-nestjs-backend:${{ github.sha }} --record
+          kubectl set image deployment/dominio-app dominio-app=${{ secrets.DOCKER_USERNAME }}/fiap-dominio:${{ github.sha }} --record

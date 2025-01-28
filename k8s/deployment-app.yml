@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dominio-app
-        image: edsontecno/dominio:latest  # Imagem do Node.js 
+        image: edsontecno/fiap-dominio:latest  # Imagem do Node.js 
         ports:
         - containerPort: 3000  # Porta exposta pela aplicação
         resources:
