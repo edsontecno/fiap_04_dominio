@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-app-service
+  name: dominio-app-service
 spec:
   selector:
-    app: backend-app  # Conecta-se ao pod do backend
+    app: dominio-app  # Conecta-se ao pod do backend
   ports:
     - protocol: TCP
       port: 3000  # Porta que será exposta externamente

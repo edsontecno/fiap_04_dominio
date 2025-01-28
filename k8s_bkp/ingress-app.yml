@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: backend-app-ingress
+  name: dominio-app-ingress
 spec:
   rules:
   - host: localhost  # Substitua pelo domínio correto: backend.example.com
@@ -11,6 +11,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: backend-app-service  # Conecta ao serviço do backend
+            name: dominio-app-service  # Conecta ao serviço do backend
             port:
               number: 3001

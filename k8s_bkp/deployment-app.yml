@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-app
+  name: dominio-app
 spec:
   replicas: 2  # Quantidade de réplicas da aplicação
   selector:
     matchLabels:
-      app: backend-app  # Seleciona pods com essa label
+      app: dominio-app  # Seleciona pods com essa label
   template:
     metadata:
       labels:
-        app: backend-app  # Associa esse label ao pod criado
+        app: dominio-app  # Associa esse label ao pod criado
     spec:
       containers:
-      - name: backend-app
+      - name: dominio-app
         image: edsontecno/clean-architecture-nestjs-backend:latest  # Imagem do Node.js 
         ports:
         - containerPort: 3000  # Porta exposta pela aplicação

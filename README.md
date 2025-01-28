@@ -96,10 +96,10 @@ Formas de acessar pelo kubernet localmente
 
 2) Usar o kubectl port-forward
 ```ssh
-  kubectl port-forward service/backend-app-service 3000:3000
+  kubectl port-forward service/dominio-app-service 3000:3000
 ```
 
-O serviço backend-app-service será acessível localmente na porta 3000, que corresponde à porta da aplicação Node.js no container.
+O serviço dominio-app-service será acessível localmente na porta 3000, que corresponde à porta da aplicação Node.js no container.
 ```ssh
   http://localhost:3000/api-docs
 ```  
