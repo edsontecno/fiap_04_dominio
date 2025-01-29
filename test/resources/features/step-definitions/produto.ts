@@ -142,8 +142,7 @@ Then("retorna os dados do produto atualizado parcialmente", function (docString:
 
 Given("usuario solicita uma consulta de produto por categoria", async () => {
   controller = new MockProductController();
-  // Verifique se o método está retornando corretamente a Promise
-  response = await controller.findOne(1);  // Não use callback aqui
+  response = await controller.findOne(1); 
 });
 
 When("sistema busca os produtos por categoria", () => {
