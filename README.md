@@ -5,6 +5,7 @@
 - Evelly Cristina Cramolish Palombo Santos 
 - Gabriel Fernandes Lazari 
 - Marcelo Rodrigues
+- Wagner Sanches
 
 ## Tecnologias
 Essa api foi desenvolvivida usando as seguintes tecnologias:
@@ -13,12 +14,6 @@ Essa api foi desenvolvivida usando as seguintes tecnologias:
  - Banco de dados Postgres
  - Migrations
  - Docker
-
-## Arquitetura
-
-A arquitetura utilizada no projeto comtempla a escabilidade utilizando Kubernetes conforme imagem abaixo:
-
-![Arquitetura](/docs/arquitetura.png)
 
 ## Banco de Dados
 
@@ -32,9 +27,6 @@ Optamos pelo banco de dados Postgres porque:
 
 * **Suporte a Transações**: Bancos de dados relacionais suportam transações ACID (Atomicidade, Consistência, Isolamento e Durabilidade), o que é fundamental em sistemas que lidam com pedidos e pagamentos.
 
-Segue abaixo o modelo relacional da nossa base de dados.
-
-![MER](/docs/MER.png)
 
 
  ## Executar com kubernetes
@@ -125,20 +117,9 @@ Para execução das APIs do projeto seguir a ordem abaixo:
 ## Gerenciamento de categoria
 Todo o gerenciamento de categorias de produtos estão disponíveis nos endpoints [/category](http://localhost:3000/api-docs#/Categoria)
 
-
-## Gerenciamentos de clientes
-O gerenciamento de cliente estão disponíveis nos endpoints [/customer](http://localhost:3000/api-docs#/Cliente)
-
 ## Gerenciamentos de Produtos
 O gerenciamento de produtos estão disponíveis nos endpoints [/prodcut](http://localhost:3000/api-docs#/Produto)
 
-## Gerenciamentos de Pedido
-O gerenciamento de pedido estão disponíveis nos endpoints [/order](http://localhost:3000/api-docs#/Pedidos).
 
-Para alteração de status de um pedido existe o endpoint [/orders/{id}/change_status/{status}](http://localhost:3000/api-docs#/Pedidos/OrderController_changeStatus), para saber o status correto existe o endpoint [/orders/status](http://localhost:3000/api-docs#/Pedidos/OrderController_getListStatus)
-
-## WebHooks Mercado Pago
-https://webhook.site/#!/view/73513925-c7ab-46fb-b0ac-e75a903b72ae/16d80e13-6925-47d3-a493-95ffc0e18cad/1
-
-# Vídeo
-O vídeo com a apresentação do trabalho encontra-se disponível [aqui](https://youtu.be/mYwLyQ2mkIA).
+Testes realizados
+![teste](images/image.png)

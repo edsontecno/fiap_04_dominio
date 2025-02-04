@@ -20,7 +20,7 @@ spec:
         resources:
           requests:   # Recursos mínimos para cada pod
             memory: "512Mi"
-            cpu: "500m"
+            cpu: "100m"
           limits:     # Limites máximos para cada pod
             memory: "1024Mi"
             cpu: "1"        
