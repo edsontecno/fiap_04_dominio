@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: backend-app-hpa
+  name: dominio-app-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: backend-app   # Nome do seu deployment
+    name: dominio-app   # Nome do seu deployment
   minReplicas: 2        # Número mínimo de réplicas
   maxReplicas: 10       # Número máximo de réplicas
   metrics:

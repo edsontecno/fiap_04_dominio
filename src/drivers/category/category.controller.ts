@@ -8,11 +8,9 @@ import {
   Patch,
   Post,
   Res,
-  UseGuards,
 } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
-  ApiBearerAuth,
   ApiBody,
   ApiInternalServerErrorResponse,
   ApiOkResponse,
@@ -23,10 +21,9 @@ import {
 } from '@nestjs/swagger';
 import { Response } from 'express';
 import { CategoryAdapterController } from '../../adapters/category/controller/CategoryAdapterController';
-import { ErrorResponseBody } from '../../system/filtros/filter-exception-global';
 import { CategoryDto } from '../../adapters/category/dto/category.dto';
 import { CreateCategoryDto } from '../../adapters/category/dto/create-category.dto';
-import { AuthGuard } from '../../system/guards/authGuard';
+import { ErrorResponseBody } from '../../system/filtros/filter-exception-global';
 
 @ApiTags('Categoria')
 @ApiBadRequestResponse({
@@ -35,8 +32,8 @@ import { AuthGuard } from '../../system/guards/authGuard';
 })
 @ApiInternalServerErrorResponse({ description: 'Erro do servidor' })
 @Controller('category')
-@ApiBearerAuth('user')
-@UseGuards(AuthGuard)
+// @ApiBearerAuth('user')
+// @UseGuards(AuthGuard)
 export class CategoryController {
   constructor(private readonly adapter: CategoryAdapterController) {}
 

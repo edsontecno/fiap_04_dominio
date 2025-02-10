@@ -73,7 +73,7 @@ kubectl apply -f service-app.yml &&
 kubectl apply -f hpa.yml &&
 kubectl apply -f ingress-app.yml
 
-kubectl port-forward service/backend-app-service 3000:3000
+kubectl port-forward service/dominio-app-service 3000:3000
 ```
 ```
 

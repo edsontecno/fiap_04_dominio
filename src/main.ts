@@ -9,18 +9,18 @@ export async function bootstrap() {
     .setTitle('Lanchonete 5 amigos')
     .setDescription('Lanchonete de bairro')
     .setVersion('1.0')
-    .addBearerAuth(
-      {
-        type: 'apiKey',
-        name: 'user',
-        in: 'header',
-      },
-      'user',
-    )
+    // .addBearerAuth(
+    //   {
+    //     type: 'apiKey',
+    //     name: 'user',
+    //     in: 'header',
+    //   },
+    //   'user',
+    // )
     .addTag('Lanchonete')
     .addServer('http://localhost:3000')
     .addServer(
-      'https://b03e-2804-46ec-80d-b900-9a0e-646a-cf41-19e3.ngrok-free.app',
+      'http://abfce60c8d08b45768ffdd01c0ec1cc3-1876684812.us-east-1.elb.amazonaws.com:3000',
     )
     .addServer('https://0oc9cpj3o6.execute-api.us-east-1.amazonaws.com/dev')
     .build();
