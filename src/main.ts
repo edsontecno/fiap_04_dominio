@@ -19,10 +19,6 @@ export async function bootstrap() {
     // )
     .addTag('Lanchonete')
     .addServer('http://localhost:3000')
-    .addServer(
-      'http://abfce60c8d08b45768ffdd01c0ec1cc3-1876684812.us-east-1.elb.amazonaws.com:3000',
-    )
-    .addServer('https://0oc9cpj3o6.execute-api.us-east-1.amazonaws.com/dev')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
