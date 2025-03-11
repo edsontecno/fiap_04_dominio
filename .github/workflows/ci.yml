@@ -33,7 +33,7 @@ jobs:
         mkdir -p "$DEST_DIR"
         
         # Copiar os arquivos
-        cp -r /home/runner/work/video-api/video-api/coverage/* "$DEST_DIR"
+        cp -r /home/runner/work/fiap_04_dominio/fiap_04_dominio/coverage/* "$DEST_DIR"
     
         echo "Artifacts copied to $DEST_DIR"
     
