@@ -1,6 +1,7 @@
-import { Given, When, Then } from "@cucumber/cucumber";
-import { strict as assert } from "assert";
-import { CreateProductDto } from "src/adapters/product/dto/create-product.dto";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Given, When, Then } from '@cucumber/cucumber';
+import { strict as assert } from 'assert';
+import { CreateProductDto } from 'src/adapters/product/dto/create-product.dto';
 
 class MockProductController {
   async create(dto: CreateProductDto): Promise<number> {
@@ -9,149 +10,155 @@ class MockProductController {
 
   async findOne(id: number): Promise<object> {
     return {
-      name: "Doce de leite",
-      description: "Doce de leite da fazenda",
+      name: 'Doce de leite',
+      description: 'Doce de leite da fazenda',
       price: 5.99,
-      image: "",
+      image: '',
       category: 1,
     };
   }
 
   async update(id: number, dto: CreateProductDto): Promise<object> {
     return {
-      name: "Doce de leite amargo",
-      description: "Doce de leite da fazenda",
+      name: 'Doce de leite amargo',
+      description: 'Doce de leite da fazenda',
       price: 5.99,
-      image: "",
+      image: '',
       category: 1,
     };
   }
 
   async remove(id: number): Promise<string> {
-    return "produto apagado com sucesso";
+    return 'produto apagado com sucesso';
   }
 }
 
 let controller: MockProductController;
 let response: any;
 
-Given("usuario solicita o produto", async () => {
+Given('usuario solicita o produto', async () => {
   controller = new MockProductController();
 
   const productDto: CreateProductDto = {
-    name: "Doce de leite",
-    description: "Doce de leite da fazenda",
+    name: 'Doce de leite',
+    description: 'Doce de leite da fazenda',
     price: 5.99,
-    image: "",
+    image: '',
     category: 1,
   };
 
   response = await controller.create(productDto);
 });
 
-When("sistema cria o produto", () => {
+When('sistema cria o produto', () => {
   if (!response) {
-    throw new Error("O produto não foi criado corretamente");
+    throw new Error('O produto não foi criado corretamente');
   }
 });
 
-Then("retorna o numero do produto {int}", (expectedNumber: number) => {
+Then('retorna o numero do produto {int}', (expectedNumber: number) => {
   assert.equal(response, expectedNumber);
 });
 
-Given("usuario solicita uma consulta do produto {int}", async (id: number) => {
+Given('usuario solicita uma consulta do produto {int}', async (id: number) => {
   controller = new MockProductController();
   response = await controller.findOne(id);
 });
 
-When("sistema busca os dados do produto", () => {
+When('sistema busca os dados do produto', () => {
   if (!response) {
-    throw new Error("O produto não foi encontrado");
+    throw new Error('O produto não foi encontrado');
   }
 });
 
-Then("retorna os dados do produto", async function (docString: string) {
+Then('retorna os dados do produto', async function (docString: string) {
   const expectedObject = JSON.parse(docString);
   assert.deepStrictEqual(response, expectedObject);
 });
 
-Given("usuario solicita alteracao do produto {int}", async (id: number) => {
+Given('usuario solicita alteracao do produto {int}', async (id: number) => {
   controller = new MockProductController();
 
   const updatedProductDto: CreateProductDto = {
-    name: "Doce de leite amargo",
-    description: "Doce de leite da fazenda",
+    name: 'Doce de leite amargo',
+    description: 'Doce de leite da fazenda',
     price: 5.99,
-    image: "",
+    image: '',
     category: 1,
   };
 
   response = await controller.update(id, updatedProductDto);
 });
 
-When("sistema atualiza o produto", () => {
+When('sistema atualiza o produto', () => {
   if (!response) {
-    throw new Error("O produto não foi atualizado corretamente");
+    throw new Error('O produto não foi atualizado corretamente');
   }
 });
 
-Then("retorna os dados do produto atualizado", function (docString: string) {
+Then('retorna os dados do produto atualizado', function (docString: string) {
   const expectedObject = JSON.parse(docString);
   assert.deepStrictEqual(response, expectedObject);
 });
 
-Given("usuario solicita a remocao do produto 1", async () => {
+Given('usuario solicita a remocao do produto 1', async () => {
   controller = new MockProductController();
   response = await controller.remove(1);
 });
 
-When("sistema deleta o produto", () => {
+When('sistema deleta o produto', () => {
   if (!response) {
-    throw new Error("O produto não foi apagado corretamente");
+    throw new Error('O produto não foi apagado corretamente');
   }
 });
 
-Then("retorna mensagem de {string}", function (expectedString: string) {
+Then('retorna mensagem de {string}', function (expectedString: string) {
   assert.equal(response, expectedString);
 });
 
-Given("usuario solicita alteracao parcial do produto {int}", async (id: number) => {
-  controller = new MockProductController();
+Given(
+  'usuario solicita alteracao parcial do produto {int}',
+  async (id: number) => {
+    controller = new MockProductController();
 
-  const updatedProductDto: CreateProductDto = {
-    name: "Doce de leite amargo",
-    description: "Doce de leite da fazenda",
-    price: 5.99,
-    image: "",
-    category: 1,
-  };
+    const updatedProductDto: CreateProductDto = {
+      name: 'Doce de leite amargo',
+      description: 'Doce de leite da fazenda',
+      price: 5.99,
+      image: '',
+      category: 1,
+    };
 
-  response = await controller.update(id, updatedProductDto);
-});
+    response = await controller.update(id, updatedProductDto);
+  },
+);
 
-When("sistema atualiza parcialmente o produto", () => {
+When('sistema atualiza parcialmente o produto', () => {
   if (!response) {
-    throw new Error("O produto não foi atualizado corretamente");
+    throw new Error('O produto não foi atualizado corretamente');
   }
 });
 
-Then("retorna os dados do produto atualizado parcialmente", function (docString: string) {
-  const expectedObject = JSON.parse(docString);
-  assert.deepStrictEqual(response, expectedObject);
-});
+Then(
+  'retorna os dados do produto atualizado parcialmente',
+  function (docString: string) {
+    const expectedObject = JSON.parse(docString);
+    assert.deepStrictEqual(response, expectedObject);
+  },
+);
 
-Given("usuario solicita uma consulta de produto por categoria", async () => {
+Given('usuario solicita uma consulta de produto por categoria', async () => {
   controller = new MockProductController();
-  response = await controller.findOne(1); 
+  response = await controller.findOne(1);
 });
 
-When("sistema busca os produtos por categoria", () => {
+When('sistema busca os produtos por categoria', () => {
   if (!response) {
-    throw new Error("O produto não foi encontrado");
+    throw new Error('O produto não foi encontrado');
   }
 });
 
-Then("retorna os dados do produtos", async function (docString: string) {
+Then('retorna os dados do produtos', async function (docString: string) {
   const expectedObject = JSON.parse(docString);
   assert.deepStrictEqual(response, expectedObject);
 });
